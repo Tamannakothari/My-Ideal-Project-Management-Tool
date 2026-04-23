@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AuraPM Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>AuraPM</h1>
+  <p>Where Ideas Flow into Action ✨</p>
+
+  <div class="header-actions">
+    <span class="icon-btn" onclick="toggleTheme()">🌙</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button onclick="showTab('board', this)" class="active-tab">Board</button>
+  <button onclick="showTab('calendar', this)">Calendar</button>
+  <button onclick="showTab('team', this)">Team</button>
+</nav>
+
+<!-- OVERVIEW -->
+<div class="overview">
+  <div class="card">📝 Tasks: <span id="taskCount">0</span></div>
+  <div class="card">📅 Events: <span id="eventCount">0</span></div>
+</div>
+
+<div class="project-bar">
+
+  <select id="projectSelect" onchange="switchProject()"></select>
+
+  <button onclick="createProject()">+ Add Project</button>
+
+</div>
+
+<!-- BOARD -->
+<section id="board" class="tab active">
+  <div class="board">
+
+    <div class="column" id="todo">
+      <h2>To Do</h2>
+      <div class="task-list"></div>
+      <button onclick="addTask('todo')">+ Add Task</button>
+    </div>
+
+    <div class="column" id="progress">
+      <h2>In Progress</h2>
+      <div class="task-list"></div>
+      <button onclick="addTask('progress')">+ Add Task</button>
+    </div>
+
+    <div class="column" id="done">
+      <h2>Done</h2>
+      <div class="task-list"></div>
+      <button onclick="addTask('done')">+ Add Task</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar" class="tab">
+  <h2>Monthly Planner 📅</h2>
+  <div id="calendarGrid"></div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="tab">
+  <h2>Team Members 👥</h2>
+
+  <div class="invite-box">
+    <input type="email" id="emailInput" placeholder="Add collaborator email">
+    <button onclick="addCollaborator()">Invite</button>
+  </div>
+
+  <div id="collaborators"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
